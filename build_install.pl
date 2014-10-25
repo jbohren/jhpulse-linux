@@ -13,7 +13,7 @@ MAIN: {
   if( -d "$ENV{HOME}/.jhpulse" ) {
     my $datestr = strftime('%Y-%m-%d-%H-%M-%S',localtime);
     my $backup_archive_name = "$ENV{HOME}/.jhpulse-$datestr.bak.tar.gz";
-    print "Backing up current .jhpusle directory to $backup_archive_name...\n";
+    print "Backing up current .jhpulse directory to $backup_archive_name...\n";
     `sudo tar -pczf $backup_archive_name ~/.jhpulse`;
     `sudo rm -rf ~/.jhpulse`;
   }
