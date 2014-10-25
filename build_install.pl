@@ -1,5 +1,7 @@
 #!/usr/bin/perl
 
+use POSIX qw(strftime);
+
 use warnings;
 use strict;
 
@@ -8,8 +10,14 @@ MAIN: {
 	#`rm -rf ~/.juniper_networks && rm -rf ~/.local/share/applications/jhpulse.desktop && rm -rf ~/.jhpulse`;
 
   # Create .jhpulse directory and copy the files in
-  `mkdir -p ~/.jhpulse`
-  `cp jhpulse/* ~/.jhpulse`
+  if( -d "$ENV{HOME}/.jhpulse" ) {
+    my $datestr = strftime('%Y-%m-%d-%H-%M-%S',localtime);
+    my $backup_archive_name = "$ENV{HOME}/.jhpulse-$datestr.bak.tar.gz";
+    print "Backing up current .jhpusle directory to $backup_archive_name...\n";
+    `sudo tar -pczf $backup_archive_name ~/.jhpulse`;
+    `sudo rm -rf ~/.jhpulse`;
+  }
+  `cp -R jhpulse ~/.jhpulse`;
 
 	# Check for required packages and install if necessary.
 	#my @packages = ('curl', 'firefox', 'gcc-multilib', 'libc6:i386', 'zlib1g:i386', 'libgtk2-perl', 'libwww-perl', 'tar', 'wget', 'unzip');
@@ -43,8 +51,8 @@ MAIN: {
 	`ln -s ~/.juniper_networks/network_connect/ncsvc.log ~/.jhpulse/ncsvc.log`;	
 
 	# Remove "installer", run JHPulse.
-	`perl ~/.jhpulse/jhpulse`;
+	#`perl ~/.jhpulse/jhpulse`;
 
-	 print "Installation completed!  You should be able to find JHPulse in your application menu.\n\n";	
+  print "Installation completed!  You should be able to find JHPulse in your application menu.\n\n";	
 }
 
