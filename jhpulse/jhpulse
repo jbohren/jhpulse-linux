@@ -2,7 +2,14 @@
 #
 my $C = 'Copyright 2008-2013 Paul D. Smith <paul@mad-scientist.net>';
 #
-# I just commented out stuff I didn't want to show up and took the dirty approach of using a "default" profile file populated with sslconnect.johnshopkins.edu, realm ECG, a profile name.  Then a few minor changes for the username/password request and a naming change form MS JNC to JHConnect for prettyness.  Basically I wanted this to be super easy to install..  Maybe one day I'll rewrite this wrapper properly... For all the options download the MSJNC script.  All important info is below. - Dmitry Dagunts
+# I just commented out stuff I didn't want to show up and took the dirty
+# approach of using a "default" profile file populated with
+# sslconnect.johnshopkins.edu, realm ECG, a profile name.  Then a few minor
+# changes for the username/password request and a naming change form MS JNC to
+# JHConnect for prettyness.  Basically I wanted this to be super easy to
+# install..  Maybe one day I'll rewrite this wrapper properly... For all the
+# options download the MSJNC script.  All important info is below. - Dmitry
+# Dagunts
 
 # MadScientist JNC Session Manager
 # I know this script is really long, but it turns out doing anything

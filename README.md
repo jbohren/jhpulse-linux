@@ -51,9 +51,14 @@ Known Issues
 4. On occassion one of the VPN programs will not exit cleanly, leaving the network in an unusable state (no DNS). The easiest fix is to disconnect and reconnect your network adapter (wireless or wired).
 5. The code is terrible and needs to be cleaned up - if you improve it please share. 
 6. I put a rudimentary update check into the script - when you "Connect" the script will 'curl http://engineering.jhu.edu/jhpulse/myversion.txt'. If this integer is of a higher value than the one hardcoded in your script, you will get a window prompting you to update. The only information we can determine from the access logs is 1. the time a VPN connection attempt was made and 2. the IP from which the attempt was made. We can't identify your username, computer name, etc. 
+7. The script is sensitive to IP address changes for jhpulse.johnshopkins.edu
 
 Changelog
 ---------
+
+#### 11/10/2014
+- Udpated hardcoded IP address for jhpulse.johnshopkins.edu
+- Display multiple candidate session files containing authentication DSID
 
 #### 10/25/2014 
 - Updated Firefox profile parsing for Firefox version 33.0.
