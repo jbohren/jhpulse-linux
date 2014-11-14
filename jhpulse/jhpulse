@@ -1303,8 +1303,8 @@ sub window_dis_connect {
     $pwd = "doesn't matter";
 
 	# Let's check if there's an update available:
-	my $version = "2";
-	my $available_version = `curl http://engineering.jhu.edu/jhpulse/myversion.txt`;
+	my $version = `cat $JNCPATH/jhpulse_version.txt`;
+	my $available_version = `curl https://raw.githubusercontent.com/jbohren/jhpulse-linux/master/jhpulse/jhpulse_version.txt`;
 	#$log->("My version if JHPulse is $version");
 	#$log->("Available version is $available_version");
 
