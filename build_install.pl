@@ -19,16 +19,16 @@ MAIN: {
   }
   `cp -R jhpulse ~/.jhpulse`;
 
-	# Check for required packages and install if necessary.
-	#my @packages = ('curl', 'firefox', 'gcc-multilib', 'libc6:i386', 'zlib1g:i386', 'libgtk2-perl', 'libwww-perl', 'tar', 'wget', 'unzip');
-	#for my $package (@packages) {
-		#my $check = `dpkg -s $package 2>/dev/null | grep Status`;
-		#chomp $check;
-		#if ($check eq '') {
-			#print "Missing package $package.\n Installing...\n";
-			#`sudo apt-get -y install $package`;
-		#}
-	#}
+  #Check for required packages and install if necessary.
+  my @packages = ('curl', 'firefox', 'gcc-multilib', 'libc6:i386', 'zlib1g:i386', 'libgtk2-perl', 'libwww-perl', 'tar', 'wget', 'unzip');
+  for my $package (@packages) {
+    my $check = `dpkg -s $package 2>/dev/null | grep Status`;
+    chomp $check;
+    if ($check eq '') {
+      print "Missing package $package.\n Installing...\n";
+      `sudo apt-get -y install $package`;
+    }
+  }
 
 	# Compile ncui
 	`cd ~/.jhpulse && gcc -m32 -Wl,-rpath,\`pwd\` -o ncui libncui.so`;
